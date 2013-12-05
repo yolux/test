@@ -1,0 +1,27 @@
+﻿/**
+ * JavaScript Slider v0.9
+ * http://blog.ovidiu.ch/javascript-slider
+ *
+ * Copyright (c) 2010, Ovidiu Cherecheș
+ * MIT License
+ * http://legal.ovidiu.ch/licenses/MIT
+ */
+
+.slider {
+	position: relative;
+	height: 40px;
+	background: #CCC;
+}
+.slider .handle {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background: #173A57;
+	color: #FFF;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+.slider .disabled {
+	background: #898989;
+}

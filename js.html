@@ -1,0 +1,152 @@
+<html>
+    <title>Vocabulary Game Tool</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="slider.css" />
+    <style type="text/css">
+        .slider {
+            width: 290px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript" src="slider.js"></script>
+    <script type = "text/javascript">
+        var table = new Array();
+        for(i=97; i<97+26; i++){
+            table[String.fromCharCode(i)] = 0;
+        }
+
+        function setDown(name){
+            table[name] = 0;
+            document.getElementById(name).style.backgroundColor = '#173A57';
+            document.getElementById(name).style.color = '#9F9F9F';
+        }
+
+        function setUp(name){
+            table[name] = 1;    
+            document.getElementById(name).style.backgroundColor = '#4C86B5';
+            document.getElementById(name).style.color = '#EFEFEF';
+        }
+
+        function updateString(){
+            str = "";
+            for(i=97; i<97+26; i++){
+                if(table[String.fromCharCode(i)] == 1){
+                    str = str.concat(String.fromCharCode(i));
+                }
+            }
+            myform.myletter.value = str;
+        }
+
+        function hitme(name){
+            if(table[name] == 1){
+                setDown(name);
+            }else{
+                setUp(name);
+            }
+            updateString();
+        }
+
+        function init(){
+            for(i=97; i<97+26; i++){
+                setDown(String.fromCharCode(i));
+            }
+
+            new Slider('my-slider', {
+                 animation_callback : function(value) {
+                    newValue = (2+Math.round(value*13))
+                    document.getElementById("slidetext").innerHTML = newValue.toString();
+                    myform.myslide.value = newValue;
+                }
+            });
+        }
+    </script>
+    <body onload="init()">
+
+        <form id="myform" method="get" action="">
+            <input type="hidden" name="myletter" value="">
+            <input type="hidden" name="myslide" value=2>
+            <table></table>
+            <!--
+            <select id="myselect" name="myselect">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+            -->
+
+            <h3> Select Candidate & Length</h3>
+            <table cellpadding="15px" cellspacing="3px">
+            <tr>
+                <td id="a" onclick = "hitme('a')" > A </td>
+                <td id="b" onclick = "hitme('b')" > B </td>
+                <td id="c" onclick = "hitme('c')" > C </td>
+                <td id="d" onclick = "hitme('d')" > D </td>
+                <td id="e" onclick = "hitme('e')" > E </td>
+                <td>  </td>
+            </tr>
+            <tr>
+                <td id="f" onclick = "hitme('f')" > F </td>
+                <td id="g" onclick = "hitme('g')" > G </td>
+                <td id="h" onclick = "hitme('h')" > H </td>
+                <td id="i" onclick = "hitme('i')" > I </td>
+                <td id="j" onclick = "hitme('j')" > J </td>
+                <td>  </td>
+            </tr>
+            <tr>
+                <td id="k" onclick = "hitme('k')" > K </td>
+                <td id="l" onclick = "hitme('l')" > L </td>
+                <td id="m" onclick = "hitme('m')" > M </td>
+                <td id="n" onclick = "hitme('n')" > N </td>
+                <td id="o" onclick = "hitme('o')" > O </td>
+                <td>  </td>
+            </tr>
+            <tr>
+                <td id="p" onclick = "hitme('p')" > P </td>
+                <td id="q" onclick = "hitme('q')" > Q </td>
+                <td id="r" onclick = "hitme('r')" > R </td>
+                <td id="s" onclick = "hitme('s')" > S </td>
+                <td id="t" onclick = "hitme('t')" > T </td>
+                <td>  </td>
+            </tr>
+            <tr>
+                <td id="u" onclick = "hitme('u')" > U </td>
+                <td id="v" onclick = "hitme('v')" > V </td>
+                <td id="w" onclick = "hitme('w')" > W </td>
+                <td id="x" onclick = "hitme('x')" > X </td>
+                <td id="y" onclick = "hitme('y')" > Y </td>
+                <td id="z" onclick = "hitme('z')" > Z </td>
+            </tr>
+            </table>
+            <br>
+
+            <div id="my-slider" class="slider">
+                <div class="handle" id="slidetext">5</div>
+            </div>
+
+            <br><br>
+            <table width="270px">
+            <tr><td><center><input style="padding:12px" type="submit" value=" Lookup Now! "/></center></td></tr>
+            </table>
+            <br><br>
+
+        </form>
+
+    </body>
+</html>
