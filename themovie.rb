@@ -20,8 +20,8 @@ File.open(path, "r:utf-8") do |f|
 		category = infos[4].strip
 		size = infos[5].strip
 		imdb = infos[6].strip
-		folder = infos[8].strip
-		output << "<li><a href='#{imdb}' data-btdate='#{release}' data-category='#{category}' data-size='#{size}G' data-copypath='~/#{folder}' data-largesrc='images/m#{id}.jpg' data-title=\"#{eng_name}\" data-description=\"#{cht_name}\"><img src='images/s#{id}.jpg' alt=\"#{eng_name}\"/></a></li>"
+		folder = infos[7].strip
+		output << "<li><a href=\"#{imdb}\" data-btdate=\"#{release}\" data-category=\"#{category}\" data-size=\"#{size}G\" data-copypath=\"~/#{folder}\" data-largesrc=\"images/m#{id}.jpg\" data-title=\"#{eng_name}\" data-description=\"#{cht_name}\"><img src=\"images/s#{id}.jpg\" alt=\"#{eng_name}\"/></a></li>"
 	end
     puts "html file output"
 	puts output.size
