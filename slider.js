@@ -8,7 +8,7 @@
  */
 
 /* Mouse */
-
+// test
 var Mouse =
 {
 	x: 0,
