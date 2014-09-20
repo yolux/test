@@ -23,8 +23,8 @@ when 1
   unless File.directory? code_path
     err "I can not find your code -> #{code_path}"
   else
-    while truee
-      cmd = "tar czvPf '#{backup_path}/#{Time.now().to_s.gsub('-','').gsub(/[: ]/, '_')[0..-7]}.tar.gz' '#{code_path}'"
+    while true
+      cmd = "tar czPf '#{backup_path}/#{Time.now().to_s.gsub('-','').gsub(/[: ]/, '_')[0..-7]}.tar.gz' '#{code_path}'"
       dbg "start to backup your code, cmd = #{cmd}"
       system(cmd)
       dbg "finish!"
